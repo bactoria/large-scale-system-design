@@ -25,7 +25,7 @@ timestamp 가 가장 먼저오면 시간순으로 정렬이 가능하다.
 ## 1. twitter - Snowflake - \[8bytes]
 
 |timestamp | machine Id (datacenterId + workerId) | sequence number |
-|:--:|:--:|:--:|:--:|
+|:--:|:--:|:--:|
 | 41bites | 10bits | 12bits |
 | 69년 | 0~1024 | 0~4096 |
 
@@ -54,15 +54,12 @@ timestamp 가 가장 먼저오면 시간순으로 정렬이 가능하다.
 |4bytes|3bytes|2bytes|3bytes|
 
 <br>
+<br>
 
+# TODO
+Q) long형 sign 
+twitter / Instagram 은 8Byte 를 사용함. 8Byte는 Long 으로 표현할 수 있는데, Long으로 표현하는 경우 부호비트 때문에 제일 첫비트는 0이 될 수 밖에 없다. 따라서 twitter는 41bites , Instagram 은 40bits를 사용하는건가? 모르겠음. 
 
-
-
-
-
-
-
-
-
+DB에는 Unsigned BigInt 형을 사용하고, 앱에서는 BigInteger를 사용하려나? 조사해봐야 함.
  
 
